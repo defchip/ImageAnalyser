@@ -1,53 +1,53 @@
 
-//<style>
-//    #preview img {
-//        height: 150px;
-//    }
-//    table, th, td {
-//        border: none;
-//        background-color: #cccccc;
-//    }
-//    th, td {
-//        padding: 0px;
-//        text-align: center;
-//    }
-//</style>
+<style>
+    #preview img {
+        height: 150px;
+    }
+    table, th, td {
+        border: none;
+        background-color: #cccccc;
+    }
+    th, td {
+        padding: 0px;
+        text-align: center;
+    }
+</style>
 
-//    <input id="browse" style="display: none;" type="file">
-//        <label for="browse" class="et_pb_button">Select Image</label>
-//        <br>
-//            <br>
+<input id="browse" style="display: none;" type="file">
+<label for="browse" class="et_pb_button">Select Image</label>
+<br>
+<br>
 
-//                <div>
-//                    <div id="previewLabel" class="infoField" style="font-weight: bold;"></div>
-//                    <br>
-//                        <div id="preview" class="infoField"></div>
-//                        <br>
-//</div>
+<div>
+    <div id="previewLabel" class="infoField" style="font-weight: bold;"></div>
+    <br>
+    <div id="preview" class="infoField"></div>
+    <br>
+</div>
 
-//                        <div>
-//                            <div id="result" class="infoField" style="font-weight: bold;"></div>
-//                            <br>
-//</div>
+<div>
+    <div id="result" class="infoField" style="font-weight: bold;"></div>
+    <br>
+</div>
 
-//                            <div>
-//                                <table id="resultsTable"></table>
-//                            </div>
+<div>
+    <table id="resultsTable"></table>
+</div>
 
-//                            <div id="infoPanel">
-//                                <br>
-//                                    <div id="imageName" class="infoField"></div>
-//                                    <br>
-//                                        <div id="imageRes" class="infoField"></div>
-//                                        <br>
-//                                            <div id="imageType" class="infoField"></div>
-//                                            <br>
-//                                                <div id="imageSize" class="infoField"></div>
-//                                                <br>
-//                                                    <div id="imageRatio" class="infoField"></div>
-//                                                    <br>
-//</div>
-//                                                    <br>
+<div id="infoPanel">
+    <br>
+    <div id="imageName" class="infoField"></div>
+    <br>
+    <div id="imageRes" class="infoField"></div>
+    <br>
+    <div id="imageType" class="infoField"></div>
+    <br>
+    <div id="imageSize" class="infoField"></div>
+    <br>
+    <div id="imageRatio" class="infoField"></div>
+    <br>
+</div>
+<br>
 
 <script>
     function tableCreate(array) {
@@ -82,19 +82,19 @@
             var td = tr.insertCell();
             td.appendChild(document.createTextNode(array[i].ppi + 'ppi'));
             if (array[i].ppi > upperPPI) {
-        td.style.color = 'white';
-    td.style.backgroundColor = 'green';
+                td.style.color = 'white';
+                td.style.backgroundColor = 'green';
             } else if (array[i].ppi < lowerPPI) {
-        td.style.color = 'white';
-    td.style.backgroundColor = 'red';
+                td.style.color = 'white';
+                td.style.backgroundColor = 'red';
             } else {
-        td.style.color = 'black';
-    td.style.backgroundColor = 'orange';
+                td.style.color = 'black';
+                td.style.backgroundColor = 'orange';
             }
 
             //populate prices
             var td = tr.insertCell();
-            td.appendChild(document.createTextNode("£" + array[i].price));
+            td.appendChild(document.createTextNode("Â£" + array[i].price));
 
             //populate links
             var td = tr.insertCell();
@@ -106,16 +106,16 @@
     }
 </script>
 
-    <script>
-        function openLink(stub) {
+<script>
+    function openLink(stub) {
         var link = 'https://that-canvas-shop.co.uk/product/custom-canvas/?attribute_pa_custom-canvas-sizes=' + stub;
         window.open(link, "_blank");
     }
 </script>
 
 
-    <script>
-        window.URL = window.URL || window.webkitURL;
+<script>
+    window.URL = window.URL || window.webkitURL;
     var elBrowse = document.getElementById("browse");
     var elPreview = document.getElementById("preview");
     var useBlob = false && window.URL;
@@ -142,16 +142,16 @@
                 var maxPixel;
 
                 if (imageWidth > imageHeight || imageWidth == imageHeight) {
-            maxPixel = imageWidth;
-        } else {
-            maxPixel = imageHeight;
-        }
+                    maxPixel = imageWidth;
+                } else {
+                    maxPixel = imageHeight;
+                }
 
                 //define Size class
                 class Size {
 
-            constructor(sizeHeight, sizeWidth, sizeOrientation, urlExt, price, ppi) {
-        this.sizeHeight = sizeHeight;
+                    constructor(sizeHeight, sizeWidth, sizeOrientation, urlExt, price, ppi) {
+                        this.sizeHeight = sizeHeight;
                         this.sizeWidth = sizeWidth;
                         this.sizeOrientation = sizeOrientation;
                         this.urlExt = urlExt;
@@ -206,7 +206,7 @@
                 sizesArray[23] = new Size(30, 32, 1, '30x32', 65);
                 sizesArray[24] = new Size(30, 40, 1, '30x40', 69);
                 sizesArray[25] = new Size(32, 32, 0, '32x32', 70);
-                sizesArray[26] = new Size(32, 40, 0, '32x32', 75);
+                sizesArray[26] = new Size(32, 40, 0, '32x40', 75);
                 sizesArray[27] = new Size(40, 40, 0, '40x40', 79);
 
                 var landscapeRatio = (imageWidth / imageHeight).toFixed(1);
@@ -215,16 +215,16 @@
                 var orientation, orientationId, ratio, ratioDecimal;
 
                 if (landscapeRatio == 1 || portraitRatio == 1) {
-            orientation = 0;
-        ratioDecimal = 1;
+                    orientation = 0;
+                    ratioDecimal = 1;
                     ratio = "1:1";
                 } else if (imageWidth > imageHeight) {
-            orientation = 1;
-        ratio = "1:" + landscapeRatio;
+                    orientation = 1;
+                    ratio = "1:" + landscapeRatio;
                     ratioDecimal = landscapeRatio;
                 } else {
-            orientation = 1;
-        ratio = "1:" + portraitRatio;
+                    orientation = 1;
+                    ratio = "1:" + portraitRatio;
                     ratioDecimal = portraitRatio;
                 }
 
@@ -245,10 +245,10 @@
                 var resultText = "The following canvas sizes fit your image's proportions and are available to purchase online now.";
 
                 if (selectedSizes.length == 0) {
-            document.getElementById("result").innerHTML = referralText;
-        } else {
-            tableCreate(selectedSizes);
-        document.getElementById("result").innerHTML = resultText;
+                    document.getElementById("result").innerHTML = referralText;
+               } else {
+                    tableCreate(selectedSizes);
+                    document.getElementById("result").innerHTML = resultText;
                 }
 
                 elPreview.appendChild(this);
@@ -261,9 +261,9 @@
                 document.getElementById("imageRatio").innerHTML = "Aspect Ratio: " + ratio;
 
                 if (useBlob) {
-            // Free some memory
-            window.URL.revokeObjectURL(image.src);
-        }
+                    // Free some memory
+                    window.URL.revokeObjectURL(image.src);
+                }
             });
             image.src = useBlob ? window.URL.createObjectURL(file) : reader.result;
         });
@@ -285,10 +285,10 @@
                 var file = files[i];
 
                 if ((/\.(png|jpeg|jpg|gif)$/i).test(file.name)) {
-            readImage(file);
-        } else {
-            errors += file.name + " Unsupported Image extension\n";
-        }
+                    readImage(file);
+                } else {
+                    errors += file.name + " Unsupported Image extension\n";
+                }
 
             }
         }
